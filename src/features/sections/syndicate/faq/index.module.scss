@@ -1,0 +1,91 @@
+@use "@styles/globalStyles.scss" as G;
+
+.body {
+  width: 100%;
+
+  .wrapper {
+    @include G.mainLayout;
+
+    .main {
+      display: grid;
+      grid-template-columns: 428px 1fr;
+
+      @include G.breakpoint("lg") {
+        grid-template-columns: 320px 1fr;
+      }
+
+      @include G.breakpoint("md") {
+        grid-template-columns: 280px 1fr;
+      }
+
+      @include G.breakpoint("sm") {
+        grid-template-columns: 1fr;
+        grid-template-rows: 200px 1fr;
+      }
+
+      .banner {
+        padding: 40px;
+        border: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+
+        @include G.breakpoint("lg") {
+          padding: 20px;
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          inset: 0;
+
+          background-image: -webkit-radial-gradient(
+            circle,
+            #c6c6c634 1px,
+            transparent 0px
+          );
+          background-size: 15px 1px;
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          inset: 0;
+
+          background-image: -webkit-radial-gradient(
+            circle,
+            #c6c6c634 1px,
+            transparent 0px
+          );
+          background-size: 1px 15px;
+        }
+
+        h3 {
+          position: relative;
+          z-index: 5;
+        }
+
+        img {
+          object-fit: contain;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          bottom: 0px;
+          object-position: bottom;
+
+          @include G.breakpoint("sm") {
+            object-position: top;
+            object-fit: contain;
+            bottom: -70px;
+          }
+        }
+      }
+
+      .list {
+        border: 1px solid var(--border);
+        height: 583px;
+        overflow-y: auto;
+      }
+    }
+  }
+}

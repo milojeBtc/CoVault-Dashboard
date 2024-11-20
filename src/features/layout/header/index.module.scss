@@ -1,0 +1,70 @@
+@use "@styles/globalStyles.scss" as G;
+
+.body {
+  width: 100%;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  z-index: 6;
+
+  backdrop-filter: blur(10px);
+  transition: all ease-in-out 0.3s;
+
+  .wrapper {
+    @include G.headerLayout;
+
+    .main {
+      position: relative;
+
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 64px;
+      align-items: center;
+
+      @include G.breakpoint("md") {
+        grid-template-columns: 1fr auto;
+      }
+
+      .root {
+        justify-self: start;
+        align-self: center;
+        background-color: transparent;
+        padding: 0px;
+
+        @include G.breakpoint("md") {
+          display: none;
+        }
+      }
+
+      .mask {
+        border-radius: 40px;
+        background-color: #21212165;
+      }
+
+      .tab {
+        font-size: 13px;
+        transition: color 0.3s ease-in-out;
+      }
+
+      .btnGroup {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .contact {
+          @include G.breakpoint("md") {
+            display: none;
+          }
+        }
+
+        .hamberger {
+          display: none;
+
+          @include G.breakpoint("md") {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

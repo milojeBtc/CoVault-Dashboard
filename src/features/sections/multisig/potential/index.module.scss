@@ -1,0 +1,146 @@
+@use "@styles/globalStyles.scss" as G;
+
+.body {
+  width: 100%;
+  background-color: black;
+  position: relative;
+  overflow: hidden;
+  // background-image: url("/src/assets/multisig/ring.png");
+  background-position: right;
+  background-repeat: no-repeat;
+
+  &::after {
+    content: "";
+    top: 100px;
+    right: -318px;
+    position: absolute;
+    width: 637px;
+    height: 942px;
+    border-radius: 942px;
+    background: rgba(253, 227, 8, 0.05);
+    filter: blur(150px);
+  }
+
+  .wrapper {
+    @include G.mainLayout;
+    position: relative;
+
+    .main {
+      border: 1px solid rgb(229, 238, 174, 0.1);
+      padding: 150px 74px;
+      background: linear-gradient(
+        153deg,
+        rgba(0, 0, 0, 0.1) 62.68%,
+        rgba(254, 228, 7, 0.08) 93.55%
+      );
+
+      // @include G.breakpoint("lg") {
+      //   // padding: 100px 48px;
+      // }
+
+      // @include G.breakpoint("md") {
+      //   // padding: 150px 30px;
+      // }
+
+      // @include G.breakpoint("sm") {
+      //   // padding: 70px 16px;
+      // }
+
+      position: relative;
+
+      &:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background-image: -webkit-radial-gradient(
+          circle,
+          rgb(229, 238, 174, 0.1) 1px,
+          transparent 1px
+        );
+        background-size: 116px 10px;
+      }
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      max-width: 880px;
+      margin: auto;
+
+      .potential{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+
+        @include G.breakpoint("md") {
+           flex-direction: column;
+        }
+  
+        @include G.breakpoint("sm") {
+          // padding: 70px 16px;
+          flex-direction: column;
+        }
+      }
+      h1 {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        font-size: 56px;
+        @include G.breakpoint("md") {
+          font-size: 32px;
+       }
+ 
+       @include G.breakpoint("sm") {
+         // padding: 70px 16px;
+         flex-direction: column;
+       }
+      }
+
+      .description {
+        display: flex;
+        justify-content: center;
+
+        p {
+          text-align: center;
+          line-height: 1.5;
+        }
+      }
+      
+    }
+  }
+
+  .border {
+    @include G.mainLayout;
+    position: absolute;
+    inset: 0;
+    margin: 100px auto;
+    max-width: 1180px;
+    width: 100%;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background: linear-gradient(to right, #e6f6dd 1px, transparent 1px) 0 0,
+        linear-gradient(to bottom, #e6f6dd 1px, transparent 1px) 0 0,
+        linear-gradient(to right, #e6f6dd 1px, transparent 1px) 0 100%,
+        linear-gradient(to top, #e6f6dd 1px, transparent 1px) 0 100%,
+        linear-gradient(to left, #e6f6dd 1px, transparent 1px) 100% 0,
+        linear-gradient(to bottom, #e6f6dd 1px, transparent 1px) 100% 0,
+        linear-gradient(to left, #e6f6dd 1px, transparent 1px) 100% 100%,
+        linear-gradient(to top, #e6f6dd 1px, transparent 1px) 100% 100%;
+
+      background-repeat: no-repeat;
+      background-size: 32px 32px;
+
+      @include G.breakpoint("sm") {
+        background-size: 24px 24px;
+      }
+    }
+  }
+}

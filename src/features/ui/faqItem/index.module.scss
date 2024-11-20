@@ -1,0 +1,49 @@
+@use "@styles/globalStyles.scss" as G;
+
+.body {
+  padding: 40px;
+  display: grid;
+  border: 1px solid var(--border);
+
+  @include G.breakpoint("md") {
+    padding: 32px;
+  }
+
+  @include G.breakpoint("sm") {
+    padding: 24px 16px;
+  }
+
+  &:has(input:checked) {
+    grid-template-rows: auto 1fr;
+
+    & > p {
+      height: 100%;
+      padding-top: 24px;
+    }
+  }
+
+  label {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 100%;
+    font-weight: 500;
+  }
+
+  input {
+    display: none;
+  }
+
+  p {
+    padding-top: 0px;
+    font-size: 16px;
+    line-height: 120%;
+    font-family: "DM Sans";
+    transition: all ease-in-out 0.3s;
+    height: 0px;
+    overflow: hidden;
+  }
+}

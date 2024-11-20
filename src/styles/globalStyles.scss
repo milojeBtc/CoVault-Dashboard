@@ -1,0 +1,85 @@
+$breakpoints: (
+  "xxm": 375px,
+  "xm": 560px,
+  "sm": 768px,
+  "md": 900px,
+  "lg": 1280px,
+  "xl": 1440px,
+);
+
+@mixin breakpoint($name) {
+  @media (max-width: map-get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+@mixin mainLayout {
+  max-width: 1440px;
+  margin: auto;
+  padding: 70px 140px;
+
+  @include breakpoint("lg") {
+    padding: 80px;
+  }
+
+  @include breakpoint("md") {
+    padding: 48px;
+  }
+
+  @include breakpoint("xm") {
+    padding: 24px;
+  }
+}
+
+@mixin headerLayout {
+  max-width: 1440px;
+  margin: auto;
+  padding: 25px 140px;
+
+  @include breakpoint("lg") {
+    padding: 25px 80px;
+  }
+
+  @include breakpoint("md") {
+    padding: 16px 48px;
+  }
+}
+
+.xxl {
+  font-size: 40px;
+  line-height: 100%;
+
+  @include breakpoint("md") {
+    font-size: 32px;
+  }
+
+  @include breakpoint("sm") {
+    font-size: 24px;
+  }
+}
+
+.lg {
+  font-size: 24px;
+  line-height: 100%;
+
+  @include breakpoint("md") {
+    font-size: 18px;
+  }
+
+  @include breakpoint("sm") {
+    font-size: 14px;
+  }
+}
+
+.xl {
+  font-size: 32px;
+  line-height: 100%;
+
+  @include breakpoint("md") {
+    font-size: 24px;
+  }
+
+  @include breakpoint("sm") {
+    font-size: 18px;
+  }
+}

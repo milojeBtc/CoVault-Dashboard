@@ -1,0 +1,192 @@
+@use "@styles/globalStyles.scss" as G;
+
+.body {
+  width: 100%;
+  border: 12px solid;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(
+    to right,
+    rgb(220, 223, 230) 0%,
+    rgb(169, 199, 208) 0.01%,
+    rgb(230, 246, 221) 19.9%,
+    rgb(229, 238, 174) 37.9%,
+    rgb(218, 200, 137) 58.4%,
+    rgb(248, 243, 198) 100%
+  );
+
+  .wrapper {
+    @include G.mainLayout;
+    position: relative;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 72px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      // background-image: url("/hero.png");
+      background-repeat: no-repeat;
+      inset: 0;
+    }
+
+    .position {
+      width: 100%;
+      background-color: white;
+      position: relative;
+      overflow: hidden;
+      background-position: right;
+      background-repeat: no-repeat;
+
+      .border {
+        position: relative;
+
+        .main {
+          position: relative;
+          display: flex;
+          justify-content: space-between;
+          border: 1px solid rgba(99, 99, 99, 0.158);
+          padding: 74px;
+          overflow: hidden;
+
+          @include G.breakpoint("lg") {
+            padding: 48px;
+          }
+
+          @include G.breakpoint("md") {
+            padding: 30px;
+          }
+
+          @include G.breakpoint("sm") {
+            padding: 16px;
+          }
+
+          position: relative;
+
+          &::after {
+            content: "";
+            top: 50%;
+            right: 0px;
+            width: 427px;
+            height: 427px;
+            transform: translateY(-50%);
+            position: absolute;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            background-image: url("/src/assets/syndicate/icon-stroke.png");
+          }
+
+          &:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+
+            background-image: -webkit-radial-gradient(
+              circle,
+              rgba(99, 99, 99, 0.158) 1px,
+              transparent 1px
+            );
+            background-size: 116px 10px;
+          }
+
+          .content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 30px;
+            max-width: 587px;
+
+            .title {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+            }
+
+            .description {
+              font-size: 18px;
+              p {
+                line-height: 1.3;
+              }
+            }
+          }
+
+          .image {
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            right: 0px;
+          }
+        }
+      }
+    }
+
+    .content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 40px;
+
+      .subTitle {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+
+        .card {
+          display: grid;
+          grid-template-rows: auto 1fr;
+          gap: 10px;
+
+          padding: 16px;
+          border-radius: 6px;
+          border: 1px solid transparent;
+          background: linear-gradient(to right, var(--white), var(--white))
+              padding-box padding-box,
+            linear-gradient(
+                to right,
+                rgb(220, 223, 230) 0%,
+                rgb(169, 199, 208) 0.01%,
+                rgb(230, 246, 221) 19.9%,
+                rgb(229, 238, 174) 37.9%,
+                rgb(218, 200, 137) 58.4%,
+                rgb(248, 243, 198) 100%
+              )
+              border-box border-box;
+
+          &.active {
+            border-top-width: 4px;
+            background: linear-gradient(to right, var(--black), var(--black))
+                padding-box padding-box,
+              linear-gradient(
+                  to right,
+                  rgb(220, 223, 230) 0%,
+                  rgb(169, 199, 208) 0.01%,
+                  rgb(230, 246, 221) 19.9%,
+                  rgb(229, 238, 174) 37.9%,
+                  rgb(218, 200, 137) 58.4%,
+                  rgb(248, 243, 198) 100%
+                )
+                border-box border-box;
+            color: var(--white);
+          }
+
+          p {
+            font-size: 16px;
+            font-family: "DM Sans";
+          }
+        }
+      }
+    }
+  }
+}

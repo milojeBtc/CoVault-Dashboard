@@ -1,0 +1,71 @@
+@use "@styles/globalStyles.scss" as G;
+
+.body {
+  width: 100%;
+  background-color: black;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    top: 100px;
+    right: -318px;
+    position: absolute;
+    width: 637px;
+    height: 942px;
+    border-radius: 942px;
+    background: rgba(253, 227, 8, 0.05);
+    filter: blur(150px);
+  }
+
+  .wrapper {
+    @include G.mainLayout;
+
+    .main {
+      padding: 24px;
+      border: 1px solid var(--border);
+
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 32px;
+
+      .title {
+        position: relative;
+
+        &:before {
+          content: "";
+          position: absolute;
+          inset: 0;
+
+          background-image: -webkit-radial-gradient(
+            circle,
+            rgb(229, 238, 174, 0.1) 1px,
+            transparent 1px
+          );
+          background-size: 116px 5px;
+        }
+
+        h3 {
+          width: 457px;
+
+          @include G.breakpoint("sm") {
+            width: 100%;
+          }
+        }
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
+
+        @include G.breakpoint("lg") {
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+
+        @include G.breakpoint("sm") {
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+      }
+    }
+  }
+}

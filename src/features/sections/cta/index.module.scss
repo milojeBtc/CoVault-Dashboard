@@ -1,0 +1,87 @@
+@use "@styles/globalStyles.scss" as G;
+
+.body {
+  width: 100%;
+
+  .wrapper {
+    @include G.mainLayout;
+
+    .main {
+      border: 1px solid rgba(117, 117, 117, 0.1);
+      background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.95) 0%,
+          rgba(0, 0, 0, 0.95) 100%
+        ),
+        linear-gradient(
+          90deg,
+          #dcdfe6 0%,
+          #a9c7d0 0.01%,
+          #e6f6dd 19.9%,
+          #e5eeae 37.9%,
+          #dac889 58.4%,
+          #f8f3c6 100%
+        );
+
+      display: grid;
+      grid-template-areas: "title conten1 content2 button";
+      grid-template-columns: auto repeat(2, 1fr) auto;
+      align-items: center;
+      gap: 40px;
+      padding: 56px 40px;
+      position: relative;
+      overflow: hidden;
+
+      @include G.breakpoint("md") {
+        grid-template-areas: "title button" "content1 content2";
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+
+      @include G.breakpoint("sm") {
+        grid-template-areas: "title" "content1" "content2" "button";
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        right: -95px;
+        bottom: -155px;
+        width: 275px;
+        height: 275px;
+        border-radius: 275px;
+        background: rgba(253, 227, 8, 0.1);
+        filter: blur(125px);
+      }
+
+      h3,
+      p,
+      .btn {
+        position: relative;
+        z-index: 5;
+      }
+
+      h3 {
+        grid-area: title;
+      }
+
+      p {
+        font-family: "DM Sans";
+      }
+
+      p:first-child {
+        grid-area: content1;
+      }
+
+      p:last-child {
+        grid-area: content2;
+      }
+
+      .btn {
+        grid-area: button;
+      }
+    }
+  }
+}

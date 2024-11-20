@@ -1,0 +1,123 @@
+@use "@styles/globalStyles.scss" as G;
+
+.body {
+  width: 100%;
+  background: black;
+
+  border: 12px solid;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(
+    to right,
+    rgb(220, 223, 230) 0%,
+    rgb(169, 199, 208) 0.01%,
+    rgb(230, 246, 221) 19.9%,
+    rgb(229, 238, 174) 37.9%,
+    rgb(218, 200, 137) 58.4%,
+    rgb(248, 243, 198) 100%
+  );
+
+  .wrapper {
+    @include G.mainLayout;
+
+    .main {
+      border: 1px solid var(--border);
+      padding: 74px;
+      background: linear-gradient(
+        153deg,
+        rgba(0, 0, 0, 0.1) 62.68%,
+        rgba(254, 228, 7, 0.08) 93.55%
+      );
+
+      @include G.breakpoint("lg") {
+        padding: 48px;
+      }
+
+      @include G.breakpoint("md") {
+        padding: 30px;
+      }
+
+      @include G.breakpoint("sm") {
+        padding: 16px;
+      }
+
+      position: relative;
+
+      &:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background-image: -webkit-radial-gradient(
+          circle,
+          rgb(229, 238, 174, 0.1) 1px,
+          transparent 1px
+        );
+        background-size: 116px 10px;
+      }
+
+      .banner {
+        position: relative;
+        z-index: 5;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        margin-bottom: 64px;
+
+        img {
+          justify-self: center;
+        }
+
+        @include G.breakpoint("sm") {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr auto;
+          margin-bottom: 24px;
+        }
+
+        h2 {
+          margin-bottom: 24px;
+        }
+      }
+
+      p {
+        position: relative;
+        z-index: 5;
+        font-family: "DM Sans";
+        font-size: 18px;
+
+        @include G.breakpoint("md") {
+          font-size: 14px;
+        }
+
+        @include G.breakpoint("sm") {
+          font-size: 12px;
+        }
+      }
+
+      .panel {
+        position: relative;
+        z-index: 5;
+        border: 1px solid var(--border);
+        background: rgba(0, 0, 0, 0.9);
+        padding: 24px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 16px;
+
+        @include G.breakpoint("sm") {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr auto 1fr;
+        }
+
+        .panelItem {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    }
+  }
+}

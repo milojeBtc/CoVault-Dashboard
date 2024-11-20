@@ -1,0 +1,136 @@
+@use "@styles/globalStyles.scss" as G;
+
+.body {
+  width: 100%;
+  background-color: black;
+  overflow: hidden;
+
+  .wrapper {
+    @include G.mainLayout;
+
+    .main {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background: linear-gradient(to right, #e6f6dd 1px, transparent 1px) 0 0,
+          linear-gradient(to bottom, #e6f6dd 1px, transparent 1px) 0 0,
+          linear-gradient(to right, #e6f6dd 1px, transparent 1px) 0 100%,
+          linear-gradient(to top, #e6f6dd 1px, transparent 1px) 0 100%,
+          linear-gradient(to left, #e6f6dd 1px, transparent 1px) 100% 0,
+          linear-gradient(to bottom, #e6f6dd 1px, transparent 1px) 100% 0,
+          linear-gradient(to left, #e6f6dd 1px, transparent 1px) 100% 100%,
+          linear-gradient(to top, #e6f6dd 1px, transparent 1px) 100% 100%;
+
+        background-repeat: no-repeat;
+        background-size: 32px 32px;
+
+        @include G.breakpoint("sm") {
+          background-size: 24px 24px;
+        }
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 1440px;
+        height: 380px;
+        border-radius: 1440px;
+        background: linear-gradient(
+          90deg,
+          rgba(220, 223, 230, 0.08) 0%,
+          rgba(169, 199, 208, 0.08) 0.01%,
+          rgba(230, 246, 221, 0.08) 19.9%,
+          rgba(229, 238, 174, 0.08) 37.9%,
+          rgba(218, 200, 137, 0.08) 58.4%,
+          rgba(248, 243, 198, 0.08) 100%
+        );
+        filter: blur(125px);
+        left: 0;
+        bottom: 0;
+      }
+
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      grid-template-areas: "list banner";
+
+      @include G.breakpoint("md") {
+        grid-template-columns: 1fr 300px;
+      }
+
+      @include G.breakpoint("sm") {
+        font-size: 12px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 394px 1fr;
+        grid-template-areas: "banner" "list";
+      }
+
+      .cols2 {
+        grid-column: span 2 / span 2;
+      }
+
+      .list {
+        grid-area: list;
+        position: relative;
+        z-index: 5;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+
+        @include G.breakpoint("xl") {
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+
+        @include G.breakpoint("md") {
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+
+        @include G.breakpoint("sm") {
+          grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        }
+      }
+
+      .banner {
+        grid-area: banner;
+        position: relative;
+        z-index: 5;
+        border: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        padding: 24px;
+        overflow: hidden;
+
+        p {
+          font-family: "DM Sans";
+          line-height: 120%;
+        }
+
+        img {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-position: bottom;
+          left: 0;
+          bottom: 0px;
+          z-index: -1;
+          object-fit: contain;
+
+          @include G.breakpoint("lg") {
+            bottom: -50px;
+          }
+
+          @include G.breakpoint("md") {
+            bottom: -100px;
+          }
+
+          @include G.breakpoint("sm") {
+            bottom: -200px;
+          }
+        }
+      }
+    }
+  }
+}

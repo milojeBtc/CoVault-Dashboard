@@ -1,0 +1,352 @@
+@use "@styles/globalStyles.scss" as G;
+
+.body {
+  width: 100%;
+  min-height: 848px;
+  background-color: black;
+  position: relative;
+  overflow: hidden;
+
+  @include G.breakpoint("lg") {
+    padding-top: 30px;
+    min-height: 600px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -200px;
+    left: -200px;
+
+    width: 558px;
+    height: 558px;
+    border-radius: 558px;
+    background-color: rgba(254, 228, 7, 0.07);
+    filter: blur(150px);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -400px;
+
+    width: 573px;
+    height: 848px;
+    border-radius: 558px;
+    background-color: rgba(255, 167, 36, 0.05);
+    filter: blur(150px);
+  }
+
+  .wrapper {
+    @include G.mainLayout;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      filter: blur(90px);
+    }
+
+    .main {
+      margin: 80px 0 70px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      @include G.breakpoint("xm") {
+        margin: 24px 0;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 1px solid var(--border);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: -12px;
+
+        background: linear-gradient(to right, #e6f6dd 1px, transparent 1px) 12px 0,
+          linear-gradient(to bottom, #e6f6dd 1px, transparent 1px) 0 12px,
+          linear-gradient(to right, #e6f6dd 1px, transparent 1px) 12px 100%,
+          linear-gradient(to bottom, #e6f6dd 1px, transparent 1px) 0 calc(100% + 12px),
+          linear-gradient(to left, #e6f6dd 1px, transparent 1px) calc(100% - 12px) 0,
+          linear-gradient(to bottom, #e6f6dd 1px, transparent 1px) 100% 12px,
+          linear-gradient(to left, #e6f6dd 1px, transparent 1px) calc(100% - 12px) 100%,
+          linear-gradient(to bottom, #e6f6dd 1px, transparent 1px) 100% calc(100% + 12px);
+
+        background-repeat: no-repeat;
+        background-size: 24px 24px;
+      }
+
+      &:has(input[id="change_mode"]:checked) {
+        .hero {
+          animation: modeTwo 0.5s ease-in-out;
+        }
+        .heroTwo {
+          animation: modeOne 0.5s ease-in-out;
+        }
+      }
+
+      .hero, .heroTwo {
+        // background-repeat: no-repeat;
+        background: linear-gradient(153deg,
+            rgba(0, 0, 0, 0.1) 62.68%,
+            rgba(254, 228, 7, 0.08) 93.55%);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        position: relative;
+        z-index: 5;
+
+        @include G.breakpoint("md") {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr auto;
+        }
+
+        .info {
+          padding: 24px;
+
+          @include G.breakpoint("sm") {
+            padding: 16px;
+          }
+
+          h1 {
+            color: white;
+            font-size: 56px;
+            font-weight: 300;
+            line-height: 100%;
+            letter-spacing: -1.12px;
+            margin-bottom: 24px;
+
+            @include G.breakpoint("lg") {
+              font-size: 40px;
+            }
+
+            @include G.breakpoint("md") {
+              width: 560px;
+            }
+
+            @include G.breakpoint("sm") {
+              font-size: 32px;
+              width: 100%;
+            }
+
+            span {
+              color: #fee407;
+              font-weight: 600;
+            }
+          }
+
+          p {
+            width: 488px;
+
+            color: #757575;
+            font-family: "DM Sans";
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 120%;
+            letter-spacing: -0.18px;
+
+            margin-bottom: 32px;
+
+            @include G.breakpoint("lg") {
+              font-size: 14px;
+              width: 295px;
+            }
+
+            @include G.breakpoint("md") {
+              width: 560px;
+            }
+
+            @include G.breakpoint("sm") {
+              width: 100%;
+            }
+
+            span {
+              color: white;
+            }
+          }
+
+          .btn {
+            @include G.breakpoint("md") {
+              position: absolute;
+            }
+          }
+        }
+
+        .diamond {
+          width: 508px;
+          height: 508px;
+          background-image: url("/hero.png");
+          display: grid;
+          place-items: center;
+          background-size: contain;
+
+          @include G.breakpoint("lg") {
+            width: 400px;
+            height: 400px;
+          }
+
+          @include G.breakpoint("md") {
+            justify-self: end;
+          }
+
+          @include G.breakpoint("sm") {
+            width: 327px;
+            height: 327px;
+          }
+
+          img {
+            @include G.breakpoint("sm") {
+              width: 200px;
+              height: 200px;
+            }
+          }
+        }
+        .diamond1 {
+          width: 508px;
+          height: 508px;
+          background-image: url("/hero1.png");
+          display: grid;
+          place-items: center;
+          background-size: contain;
+
+          @include G.breakpoint("lg") {
+            width: 400px;
+            height: 400px;
+          }
+
+          @include G.breakpoint("md") {
+            justify-self: end;
+          }
+
+          @include G.breakpoint("sm") {
+            width: 327px;
+            height: 327px;
+          }
+
+          img {
+            @include G.breakpoint("sm") {
+              width: 200px;
+              height: 200px;
+            }
+          }
+        }
+      }
+
+      .heroTwo {
+        position: absolute;
+        transition: all ease-in-out 0.4s;
+        animation: modeTwo 0.5s ease-in-out forwards;
+        opacity: 0;
+      }
+
+      .hero {
+        transition: all ease-in-out 0.4s;
+        animation: modeOne 0.5s ease-in-out forwards;
+      }
+
+      .infos {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 24px;
+        height: 80px;
+        border-top: 1px solid var(--border);
+        position: relative;
+        z-index: 5;
+
+        @include G.breakpoint("md") {
+          align-items: start;
+          padding: 16px;
+          height: 100%;
+          flex-direction: column;
+        }
+
+        .contact {
+          width: 100%;
+        }
+
+        .info {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+
+          @include G.breakpoint("md") {
+            align-items: start;
+            flex-direction: column;
+          }
+
+          &>span {
+            color: #fee407;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 110%;
+            letter-spacing: -0.12px;
+          }
+
+          p {
+            color: white;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 110%;
+            letter-spacing: -0.16px;
+          }
+        }
+
+        .border {
+          height: 100%;
+          width: 1px;
+
+          @include G.breakpoint("md") {
+            height: 1px;
+            width: 100%;
+            margin: 16px 0;
+          }
+
+          background: linear-gradient(90deg,
+            rgba(220, 223, 230, 0.2) 0%,
+            rgba(169, 199, 208, 0.2) 0.01%,
+            rgba(230, 246, 221, 0.2) 19.9%,
+            rgba(229, 238, 174, 0.2) 37.9%,
+            rgba(218, 200, 137, 0.2) 58.4%,
+            rgba(248, 243, 198, 0.2) 100%);
+          margin: 0 4px;
+        }
+      }
+    }
+  }
+
+  .changeMode {
+    display: none;
+  }
+}
+@keyframes modeOne {
+  0% {
+    opacity: 1;
+    transform: rotateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes modeTwo {
+  0% {
+    opacity: 0;
+    transform: rotateY(180deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0);
+  }
+}
