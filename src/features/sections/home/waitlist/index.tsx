@@ -106,8 +106,9 @@ export const WaitlistSection = () => {
 
   };
 
-  const handleVerifyCode = async () => {
-    if (verificationCodeInput === String(generatedCode)) {
+  const handleVerifyCode = async (e: string) => {
+    console.log("verificationCodeInput ==> ", e);
+    if (e === String(generatedCode)) {
       const result = await saveWLController(userInfo);
       console.log("saveWLController result ==> ", result)
       if (result.data.success) {
