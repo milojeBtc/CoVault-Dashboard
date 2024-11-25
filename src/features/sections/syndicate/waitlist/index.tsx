@@ -39,12 +39,12 @@ export const WaitlistSection = () => {
   const sendVerificationEmail = async () => {
     const code = Math.floor(100000 + Math.random() * 900000); // Generate a random 6-digit code
     try {
-      const result = await emailjs.send("service_5081tf6", "template_3uhnb55", {
+      const result = await emailjs.send("service_ltobmmn", "template_lk2wtkg", {
         to_email: userInfo.email,
         from_name: "CoVault Supporting Team",
         to_name: userInfo.name,
         message: code
-      }, "_ArshWEM13UdABw4W");
+      }, "RW2UABbP1FILG1tve");
 
       setGeneratedCode(code);
       return result;

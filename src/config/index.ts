@@ -1,4 +1,4 @@
-export const BACKEND_URL = "https://covault-be.vercel.app/api"
+export const BACKEND_URL = "https://dashboardserver.covault.xyz/api"
 
 export interface IWhitelistType {
     name: string,
